@@ -21,3 +21,9 @@ class ControlInterface:
   def check_update(self):
     for inputItem in self.inputs:
       inputItem.check_update()
+
+  def add_input(self, deskInput: Input):
+    self.inputs.append(deskInput)
+
+  def get_inputs(self):
+    return list(map(lambda deskInput: deskInput.get_id(), self.inputs))

@@ -41,5 +41,5 @@ class Input(ABC):
     return {
       "type": self.get_type(),
       "id": self.get_id(),
-      "value": self.get_value()
+      "value": self.get_value_silent()
     }
