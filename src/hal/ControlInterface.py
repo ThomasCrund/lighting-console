@@ -1,5 +1,5 @@
 from typing import List
-from src.control.Input import Input
+from src.hal.Input import Input
 
 class ControlInterface:
   

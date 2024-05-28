@@ -1,5 +1,5 @@
 
-from src.control.Button import Input
+from src.hal.Button import Input
 
 class ButtonInput(Input):
   

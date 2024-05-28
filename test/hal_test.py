@@ -1,6 +1,7 @@
 
-from src.control.ControlInterface import ControlInterface
-from src.control.Button import Button
+from src.hal.ControlInterface import ControlInterface
+from src.hal.Button import Button
+from src.hal.Slider import Slider
 
 class TestInterface:
   
@@ -83,5 +84,37 @@ class TestButton:
         "type": "button",
         "id": "button1",
         "value": True
+      }
+    }
+
+class TestSlider:
+
+  def test_add_to_interface(self):
+    interface = ControlInterface()
+    assert interface.__class__.__name__ == "ControlInterface"
+    interface.add_input(Slider("slider1", 0))
+    assert interface.get_inputs() == ["slider1"]
+
+  def test_check_get_initial_value(self):
+    interface = ControlInterface()
+    interface.add_input(Slider("slider1", 0))
+    assert interface.get_updates() == {
+      "slider1": {
+        "type": "slider",
+        "id": "slider1",
+        "value": 0
+      }
+    }
+
+  def test_check_get_valuee(self):
+    interface = ControlInterface()
+    slider = Slider("slider1", 0)
+    interface.add_input(slider)
+    slider.set_value(129)
+    assert interface.get_updates() == {
+      "slider1": {
+        "type": "slider",
+        "id": "slider1",
+        "value": 129
       }
     }

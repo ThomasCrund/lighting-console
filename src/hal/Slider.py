@@ -1,5 +1,5 @@
 
-from src.control.Input import Input
+from src.hal.Input import Input
 
 class Slider(Input):
   
@@ -11,10 +11,10 @@ class Slider(Input):
     self.value = value
   
   def get_value(self):
-    return self.get_value
+    return self.value
   
   def get_value_silent(self):
-    return self.get_value
+    return self.value
   
   def get_id(self):
     return self.id
