@@ -23,5 +23,8 @@ class Button(Input):
   def get_value_silent(self):
     return self.pressed
   
+  def get_changed(self):
+    return self.update
+  
   def check_update(self):
     pass

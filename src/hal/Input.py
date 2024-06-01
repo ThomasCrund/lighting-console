@@ -23,6 +23,10 @@ class Input(ABC):
     pass
   
   @abstractmethod
+  def get_changed(self):
+    pass
+
+  @abstractmethod
   def get_value_silent(self):
     pass
   
@@ -34,12 +38,14 @@ class Input(ABC):
     return {
       "type": self.get_type(),
       "id": self.get_id(),
-      "value": self.get_value()
+      "changed": self.get_changed(),
+      "value": self.get_value(),
     }
   
   def to_object_silent(self):
     return {
       "type": self.get_type(),
       "id": self.get_id(),
-      "value": self.get_value_silent()
+      "changed": self.get_changed(),
+      "value": self.get_value_silent(),
     }

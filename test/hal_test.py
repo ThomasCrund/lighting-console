@@ -30,7 +30,8 @@ class TestButton:
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": False
+        "value": False,
+        "changed": False
       }
     }
 
@@ -43,7 +44,8 @@ class TestButton:
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": True
+        "value": True,
+        "changed": True
       }
     }
 
@@ -56,14 +58,16 @@ class TestButton:
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": True
+        "value": True,
+        "changed": True
       }
     }
     assert interface.get_updates() == {
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": False
+        "value": False,
+        "changed": False
       }
     }
 
@@ -76,14 +80,16 @@ class TestButton:
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": True
+        "value": True,
+        "changed": True
       }
     }
     assert interface.get_updates_silent() == {
       "button1": {
         "type": "button",
         "id": "button1",
-        "value": True
+        "value": True,
+        "changed": True
       }
     }
 
@@ -102,7 +108,8 @@ class TestSlider:
       "slider1": {
         "type": "slider",
         "id": "slider1",
-        "value": 0
+        "value": 0,
+        "changed": False
       }
     }
 
@@ -115,6 +122,15 @@ class TestSlider:
       "slider1": {
         "type": "slider",
         "id": "slider1",
-        "value": 129
+        "value": 129,
+        "changed": True
+      }
+    }
+    assert interface.get_updates() == {
+      "slider1": {
+        "type": "slider",
+        "id": "slider1",
+        "value": 129,
+        "changed": False
       }
     }
