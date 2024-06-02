@@ -14,3 +14,11 @@ class Interpreter(ABC):
 
   def get_channels(self):
     return self._channels
+  
+  @abstractmethod
+  def enable(self):
+    pass
+
+  @abstractmethod
+  def deactivate(self):
+    pass

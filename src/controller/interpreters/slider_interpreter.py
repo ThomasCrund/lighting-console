@@ -10,6 +10,6 @@ class SliderInterpreter(Interpreter):
     self._input_id = input_id
 
   def interpret_hal(self, hal_data: dict, artnet: ArtnetManager):
-    if self._input_id in hal_data and hal_data[self._input_id].type == "slider":
+    if self._input_id in hal_data and hal_data[self._input_id].type == "slider" and hal_data[self._input_id].changed == True:
       for channel in self.get_channels():
         channel.set_output_value(artnet, hal_data[self._input_id].value)
